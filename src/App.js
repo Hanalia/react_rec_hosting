@@ -4,10 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import React, { PureComponent } from 'react';
-import {Grid} from "@material-ui/core"
+import {Grid, Paper} from "@material-ui/core"
 // import   ResponsiveContainer from "recharts";
 import {
-  ResponsiveContainer,
+  // ResponsiveContainer,
   ComposedChart,
   Area,
   XAxis,
@@ -17,50 +17,67 @@ import {
   Legend,
   // 
 } from "recharts";
+
+
 import mydata from "./mydata/github_recdata.json";
 
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+  container: {
+    padding: theme.spacing(1),
   },
-  firsticon: {
+  horizontalPaper: {
     margin: theme.spacing(1),
-    fontSize: theme.typography.pxToRem(50),
-    // backgroundColor: theme.palette.secondary.main,
+    padding: theme.spacing(2),
   },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+  verticalPaper: {
+    margin: theme.spacing(1),
+    padding: theme.spacing(2),
+    display: "flex",
+    overflow: "hidden",
+    flexDirection: "column",
+    alignItems: "center",
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+}))
+
+
+
+// const useStyles = makeStyles((theme) => ({
+//   paper: {
+//     marginTop: theme.spacing(8),
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//   },
+//   firsticon: {
+//     margin: theme.spacing(1),
+//     fontSize: theme.typography.pxToRem(50),
+//     // backgroundColor: theme.palette.secondary.main,
+//   },
+//   form: {
+//     width: '100%', // Fix IE 11 issue.
+//     marginTop: theme.spacing(1),
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2),
+//   },
+// }));
 
 
 const App = () => {
   const classes = useStyles();
   return (
-    <Container component="main" maxWidth="xs">
-
-    <div className={classes.paper}>
-      <Grid container spacing={2} >
-        <Grid align="center" item xs={12} sm={12}>
-       {/* // <ResponsiveContainer width="100%" height="100%"> */}
-      {/* <ResponsiveContainer width="99%" height="99%"> */}
+    <Grid container className={classes.container}>
+      <Grid item xs={12} md={12} lg={12}>
+        <Paper className={classes.verticalPaper}>
           <Typography component="h1" variant="h5">
             REC Price 
           </Typography>
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
-
           <ComposedChart
-            width={500}
+            width={400}
             height={400}
             data={mydata}
             margin={{
@@ -112,13 +129,9 @@ const App = () => {
               fill="url(#colorUv)"
             /> */}
           </ComposedChart>
-      {/* </ResponsiveContainer> */}
-    {/* </ResponsiveContainer> */}
-        </Grid>
+        </Paper>
       </Grid>
-    </div>
-    </Container>
-
+    </Grid>
   );
 }
 export default App
