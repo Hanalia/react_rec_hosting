@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import React, { PureComponent } from 'react';
 import {Grid, Paper} from "@material-ui/core"
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 // import   ResponsiveContainer from "recharts";
 import {
   ResponsiveContainer,
@@ -23,6 +25,9 @@ import mydata from "./mydata/github_recdata.json";
 
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
   container: {
     padding: theme.spacing(1),
   },
@@ -31,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   verticalPaper: {
-    margin: theme.spacing(2),
-    padding: theme.spacing(3),
+    margin: theme.spacing(1),
+    padding: theme.spacing(2),
     display: "flex",
     overflow: "hidden",
     flexDirection: "column",
@@ -67,9 +72,11 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
   const classes = useStyles();
   return (
-    <Grid container className={classes.container}>
-      <Grid item xs={12} md={12} lg={12}>
-        <Paper className={classes.verticalPaper}>
+    <Container component="main" maxWidth="xs">
+    <CssBaseline />
+    <div className={classes.verticalPaper}>
+    <Grid container spacing={2} >
+          <Grid align="center" item xs={12} sm={12}>
           <Typography component="h1" variant="h5">
             REC Price 
           </Typography>
@@ -78,7 +85,7 @@ const App = () => {
           </Typography>
           <ResponsiveContainer width="99%" aspect = {0.8}>
           <ComposedChart
-            width={400}
+            width={500}
             height={400}
             data={mydata}
             margin={{
@@ -131,9 +138,10 @@ const App = () => {
             /> */}
           </ComposedChart>
           </ResponsiveContainer>
-        </Paper>
+          </Grid>
       </Grid>
-    </Grid>
+    </div>
+  </Container>
   );
 }
 export default App
