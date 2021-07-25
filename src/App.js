@@ -7,7 +7,7 @@ import React, { PureComponent } from 'react';
 import {Grid, Paper} from "@material-ui/core"
 // import   ResponsiveContainer from "recharts";
 import {
-  // ResponsiveContainer,
+  ResponsiveContainer,
   ComposedChart,
   Area,
   XAxis,
@@ -76,6 +76,7 @@ const App = () => {
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
+          <ResponsiveContainer width="100%" height="99%">
           <ComposedChart
             width={400}
             height={400}
@@ -129,6 +130,7 @@ const App = () => {
               fill="url(#colorUv)"
             /> */}
           </ComposedChart>
+          </ResponsiveContainer>
         </Paper>
       </Grid>
     </Grid>
