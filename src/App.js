@@ -1,9 +1,13 @@
-import React from "react";
+// import React from "react";
 import moment from "moment";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Container from '@material-ui/core/Container';
+import React, { PureComponent } from 'react';
+import {Grid} from "@material-ui/core"
+// import   ResponsiveContainer from "recharts";
 import {
+  ResponsiveContainer,
   ComposedChart,
   Area,
   XAxis,
@@ -11,7 +15,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  // 
 } from "recharts";
 import mydata from "./mydata/github_recdata.json";
 
@@ -41,71 +45,80 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
   const classes = useStyles();
   return (
-    // <div>
-    <div className={classes.paper}>
-      {/* <ResponsiveContainer width="99%" height="99%"> */}
-        <Typography component="h1" variant="h5">
-          REC Price 
-        </Typography>
-        <Typography component="h5" variant="body1">
-          (KRW/REC) 
-        </Typography>
+    <Container component="main" maxWidth="xs">
 
-        <ComposedChart
-          width={500}
-          height={400}
-          data={mydata}
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20
-          }}
-        >
-          <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-            </linearGradient>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis
-            dataKey="date"
-            interval ={100}
-            tickFormatter={(unixTime) => moment(unixTime).format("YY/MM/DD")}
-          />
-          <YAxis tickFormatter={tick => {return tick.toLocaleString();
-                }}
-                />
-          <Tooltip
-            formatter={(value, name, props) => [
-              new Intl.NumberFormat("en").format(value),
-              "종가"
-            ]}
-          />
-          <Legend />
-          <Area
-            type="monotone"
-            dataKey="closing_price"
-            fill="url(#colorPv)"
-            stroke="#82ca9d"
-            fillOpacity={1}
-          />{" "}
-          {/* <Bar
-            type="monotone"
-            dataKey="trade_volume"
-            barSize={20}
-            stroke="#8884d8"
-            fillOpacity={1}
-            fill="url(#colorUv)"
-          /> */}
-        </ComposedChart>
+    <div className={classes.paper}>
+      <Grid container spacing={2} >
+        <Grid align="center" item xs={12} sm={12}>
+       {/* // <ResponsiveContainer width="100%" height="100%"> */}
+      {/* <ResponsiveContainer width="99%" height="99%"> */}
+          <Typography component="h1" variant="h5">
+            REC Price 
+          </Typography>
+          <Typography component="h5" variant="body1">
+            (KRW/REC) 
+          </Typography>
+
+          <ComposedChart
+            width={500}
+            height={400}
+            data={mydata}
+            margin={{
+              top: 20,
+              right: 20,
+              bottom: 20,
+              left: 20
+            }}
+          >
+            <defs>
+              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+              </linearGradient>
+              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid stroke="#f5f5f5" />
+            <XAxis
+              dataKey="date"
+              interval ={100}
+              tickFormatter={(unixTime) => moment(unixTime).format("YY/MM/DD")}
+            />
+            <YAxis tickFormatter={tick => {return tick.toLocaleString();
+                  }}
+                  />
+            <Tooltip
+              formatter={(value, name, props) => [
+                new Intl.NumberFormat("en").format(value),
+                "종가"
+              ]}
+            />
+            <Legend />
+            <Area
+              type="monotone"
+              dataKey="closing_price"
+              fill="url(#colorPv)"
+              stroke="#82ca9d"
+              fillOpacity={1}
+            />{" "}
+            {/* <Bar
+              type="monotone"
+              dataKey="trade_volume"
+              barSize={20}
+              stroke="#8884d8"
+              fillOpacity={1}
+              fill="url(#colorUv)"
+            /> */}
+          </ComposedChart>
       {/* </ResponsiveContainer> */}
+    {/* </ResponsiveContainer> */}
+        </Grid>
+      </Grid>
     </div>
+    </Container>
+
   );
 }
 export default App
