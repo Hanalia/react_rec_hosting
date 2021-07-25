@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   verticalPaper: {
     margin: theme.spacing(1),
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "hidden",
     flexDirection: "column",
