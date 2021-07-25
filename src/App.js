@@ -33,11 +33,11 @@ const useStyles = makeStyles((theme) => ({
   },
   horizontalPaper: {
     margin: theme.spacing(1),
-    padding: theme.spacing(2),
+    // padding: theme.spacing(2),
   },
   verticalPaper: {
     margin: theme.spacing(1),
-    padding: theme.spacing(3),
+    // padding: theme.spacing(2),
     display: "flex",
     overflow: "hidden",
     flexDirection: "column",
@@ -83,7 +83,7 @@ const App = () => {
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
-          <ResponsiveContainer width="90%" aspect = {1}>
+          <ResponsiveContainer width="99%" aspect = {1.1}>
             <ComposedChart
               // width={500}
               // height={400}
