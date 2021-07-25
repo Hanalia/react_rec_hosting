@@ -78,7 +78,7 @@ const App = () => {
     <Grid container spacing={2} >
       <Grid align="center" item xs={12} sm={12}>
           <Typography component="h1" variant="h5">
-            REC Price 
+            REC dsdsPrice 
           </Typography>
           <Typography component="h5" variant="body1">
             (KRW/REC) 
