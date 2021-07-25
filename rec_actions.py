@@ -27,7 +27,7 @@ transposed['date'] = pd.to_datetime(transposed['date'].str[:-3], format='%Y.%m.%
 finaldf = pd.concat([large_df,transposed],ignore_index=True)
 
 # 혹시 모르니 drop duplicates 해주기
-# finaldf = finaldf.drop_duplicates('date')
+finaldf = finaldf.drop_duplicates('date')
 
 # finaldf를 다시 저장
 finaldf.to_json('./src/mydata/github_recdata.json', orient='records')
