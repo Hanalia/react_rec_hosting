@@ -78,12 +78,12 @@ const App = () => {
     <Grid container spacing={2} >
       <Grid align="center" item xs={12} sm={12}>
           <Typography component="h1" variant="h5">
-            REC dsdsPrice 
+            REC Price
           </Typography>
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
-          <ResponsiveContainer width="90%" aspect = {3}>
+          <ResponsiveContainer width="90%" aspect = {1}>
             <ComposedChart
               // width={500}
               // height={400}
