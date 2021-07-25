@@ -76,7 +76,7 @@ const App = () => {
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
-          <ResponsiveContainer width="99%" aspect = {2}>
+          <ResponsiveContainer width="99%" aspect = {0.8}>
           <ComposedChart
             width={400}
             height={400}
