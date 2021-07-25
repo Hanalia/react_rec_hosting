@@ -76,25 +76,25 @@ const App = () => {
     <CssBaseline />
     <div className={classes.verticalPaper}>
     <Grid container spacing={2} >
-          <Grid align="center" item xs={12} sm={12}>
+      <Grid align="center" item xs={12} sm={12}>
           <Typography component="h1" variant="h5">
             REC Price 
           </Typography>
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
-          <ResponsiveContainer width="99%" aspect = {0.8}>
-          <ComposedChart
-            width={500}
-            height={400}
-            data={mydata}
-            margin={{
-              top: 20,
-              right: 20,
-              bottom: 20,
-              left: 20
-            }}
-          >
+          <ResponsiveContainer width="99%" aspect = {1}>
+            <ComposedChart
+              // width={500}
+              // height={400}
+              data={mydata}
+              margin={{
+                top: 20,
+                right: 20,
+                bottom: 20,
+                left: 20
+              }}
+            >
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
