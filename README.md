@@ -1,10 +1,21 @@
-# Getting Started with Create React App
+## Korea REC price monitoring Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+
+
+## Why I made this?
 
 In the project directory, you can run:
+
+
+## Overall Workflow
+
+
+
+1.
+2.
+3.
+
 
 ### `npm start`
 
