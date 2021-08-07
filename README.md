@@ -18,8 +18,6 @@ Site URL : https://hanalia.github.io/react_rec_hosting/
 
 ## Overall Workflow
 
-<img width="800" alt="Untitled Diagram" src="https://user-images.githubusercontent.com/75914909/128611129-c3be04e7-01c6-4c03-ad2a-eefcf883432b.png">
-
 ![Untitled Diagram](https://user-images.githubusercontent.com/75914909/128611173-3f595c84-8ded-44e0-887b-2f2c7b9c335a.jpg)
 
 
