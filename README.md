@@ -1,8 +1,7 @@
 
 ## Korea REC price monitoring Dashboard
 
-![ggrwqsCYir](https://user-images.githubusercontent.com/75914909/128609556-9ba2ae57-9b03-4f6e-9cac-a6619cc8eae9.gif)
-
+![SyqvaRYt60](https://user-images.githubusercontent.com/75914909/128609749-5d764fa7-1f83-44d3-ba7f-f38052eed256.gif)
 
 ## Main features
 
