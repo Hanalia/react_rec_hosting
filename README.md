@@ -16,7 +16,7 @@ Site URL : https://hanalia.github.io/react_rec_hosting/
 4. Enables users to export data in csv format
 
 
-## Overall Workflow
+## Workflow Diagram
 
 ![Untitled Diagram](https://user-images.githubusercontent.com/75914909/128611173-3f595c84-8ded-44e0-887b-2f2c7b9c335a.jpg)
 
