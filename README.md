@@ -11,6 +11,6 @@ Site URL : https://hanalia.github.io/react_rec_hosting/
 1. Automatically updates recent REC price, two times a week (every Wednesday, Friday) (with github-actions)
 2. Graph visualization of recent price trends using Recharts library
 3. Table visualization using react-table library, including features such as sorting and pagination
-4. export data as csv
+4. Enables users to export data in csv format
 
 
