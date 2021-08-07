@@ -9,7 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 // import   ResponsiveContainer from "recharts";
 import mydata from "./mydata/github_recdata.json";
-
+import PaginationTableComponent from "./Table";
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -74,17 +74,20 @@ const App = () => {
 
   const classes = useStyles();
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="false">
     <CssBaseline />
     <div className={classes.verticalPaper}>
     <Grid container spacing={2} >
-      <Grid align="center" item xs={12} sm={12}>
-          <Typography component="h1" variant="h5">
+      <Grid align="center" item xs={12} sm={12} md={12}>
+      <Typography component="h1" variant="h5">
             REC Price
           </Typography>
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
+      </Grid>
+      <Grid align="center" item xs={12} sm={12} md={7}>
+
           <ResponsiveContainer 
           width="99%" 
           aspect = {1.1}
@@ -146,7 +149,11 @@ const App = () => {
           </ComposedChart>
           </ResponsiveContainer>
           </Grid>
+          <Grid align="center" item xs={12} sm={12} md={5}>
+          <PaginationTableComponent/>
+          </Grid>
       </Grid>
+      
     </div>
   </Container>
   );
