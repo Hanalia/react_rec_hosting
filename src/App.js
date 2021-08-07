@@ -8,6 +8,8 @@ import {Grid, Paper} from "@material-ui/core"
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 // import   ResponsiveContainer from "recharts";
+import mydata from "./mydata/github_recdata.json";
+
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -20,8 +22,6 @@ import {
   // 
 } from "recharts";
 
-
-import mydata from "./mydata/github_recdata.json";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -70,6 +70,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 const App = () => {
+  
+
   const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs">
@@ -83,11 +85,16 @@ const App = () => {
           <Typography component="h5" variant="body1">
             (KRW/REC) 
           </Typography>
-          <ResponsiveContainer width="99%" aspect = {1.1}>
+          <ResponsiveContainer 
+          width="99%" 
+          aspect = {1.1}
+          key={`rc_${mydata.length}`}>
+          
             <ComposedChart
               // width={500}
               // height={400}
               data={mydata}
+              key={`cc_${mydata.length}`}
               margin={{
                 top: 20,
                 right: 20,
@@ -109,7 +116,7 @@ const App = () => {
             <XAxis
               dataKey="date"
               interval ={100}
-              tickFormatter={(unixTime) => moment(unixTime).format("YY/MM/DD")}
+              tickFormatter={(unixTime) => moment(unixTime).format("YY/MM")}
             />
             <YAxis tickFormatter={tick => {return tick.toLocaleString();
                   }}
