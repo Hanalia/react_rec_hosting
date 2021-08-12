@@ -26,57 +26,57 @@ const Styles = styled.div`
 
 function getExportFileBlob({ columns, data, fileType, fileName }) {
     if (fileType === "csv") {
-      // CSV example
-      const headerNames = columns.map((col) => col.exportValue);
-      const csvString = Papa.unparse({ fields: headerNames, data });
-      return new Blob([csvString], { type: "text/csv" });
-    } 
+        // CSV example
+        const headerNames = columns.map((col) => col.exportValue);
+        const csvString = Papa.unparse({ fields: headerNames, data });
+        return new Blob([csvString], { type: "text/csv" });
+    }
     // Other formats goes here
     return false;
-  }
-  
+}
+
 
 
 function Table({ columns, data }) {
     // Use the state and functions returned from useTable to build your UI
     const {
-      getTableProps,
-      getTableBodyProps,
-      headerGroups,
-      prepareRow,
-      page,
-      canPreviousPage,
-      canNextPage,
-      pageOptions,
-      pageCount,
-      gotoPage,
-      nextPage,
-      previousPage,
-      setPageSize,
-      state: { pageIndex, pageSize },
-      exportData,
-  } = useTable(
-      {
-          columns,
-          data,
-          getExportFileBlob,
-          initialState: { 
-              pageIndex: 0, 
-              pageSize: 10,
-              sortBy: [
-                {
-                    id: 'date',
-                    desc: true
-                }
-            ]
-             },
-      },
-      useSortBy,
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        prepareRow,
+        page,
+        canPreviousPage,
+        canNextPage,
+        pageOptions,
+        pageCount,
+        gotoPage,
+        nextPage,
+        previousPage,
+        setPageSize,
+        state: { pageIndex, pageSize },
+        exportData,
+    } = useTable(
+        {
+            columns,
+            data,
+            getExportFileBlob,
+            initialState: {
+                pageIndex: 0,
+                pageSize: 10,
+                sortBy: [
+                    {
+                        id: 'date',
+                        desc: true
+                    }
+                ]
+            },
+        },
+        useSortBy,
 
-      usePagination,
-      useExportData,
+        usePagination,
+        useExportData,
 
-  )
+    )
     // Render the UI for your table
     return (
         <div>
@@ -86,16 +86,16 @@ function Table({ columns, data }) {
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                                  {column.render('Header')}
-                                  <span>
+                                    {column.render('Header')}
+                                    <span>
                                         {column.isSorted
                                             ? column.isSortedDesc
                                                 ? ' 🔽'
                                                 : ' 🔼'
                                             : ''}
-                                    </span>                         
-                                  
-                                  </th>
+                                    </span>
+
+                                </th>
                             ))}
                         </tr>
                     ))}
@@ -106,7 +106,7 @@ function Table({ columns, data }) {
                         return (
                             <tr {...row.getRowProps()}>
                                 {row.cells.map(cell => {
-                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                                 })}
                             </tr>
                         )
@@ -166,9 +166,9 @@ function Table({ columns, data }) {
                         </option>
                     ))}
                 </select>
-                <button onClick={() => {exportData("csv", true);}}>
-                {/* <button onClick={() => {exportData("csv", true);}}> */}
-                Export CSV
+                <button onClick={() => { exportData("csv", true); }}>
+                    {/* <button onClick={() => {exportData("csv", true);}}> */}
+                    Export CSV
                 </button>
             </ul>
         </div >
@@ -184,47 +184,47 @@ function toCurrency(numberString) {
 function PaginationTableComponent() {
 
     const columns = React.useMemo(
-  () => [
-   {
-     Header: 'Date',
-     accessor: 'date',
-   },
-   {
-     Header: '거래량(REC)',
-     accessor: 'trade_volume',
-    Cell: props => <div> {toCurrency(props.value)} </div>
+        () => [
+            {
+                Header: 'Date',
+                accessor: 'date',
+            },
+            {
+                Header: '거래량(REC)',
+                accessor: 'trade_volume',
+                Cell: props => <div> {toCurrency(props.value)} </div>
 
-    // Cell: row => <div style={{ textAlign: "center" }}>{toCurrency(row.value)}</div>
+                // Cell: row => <div style={{ textAlign: "center" }}>{toCurrency(row.value)}</div>
 
-    // Cell: props => toCurrency(props.value),
+                // Cell: props => toCurrency(props.value),
 
-    //  Cell: data => data.value.toLocaleString(),
-   },
-   {
-      Header: '종가(원)',
-      accessor: 'closing_price',
-      Cell: props => <div> {toCurrency(props.value)} </div>
+                //  Cell: data => data.value.toLocaleString(),
+            },
+            {
+                Header: '종가(원)',
+                accessor: 'closing_price',
+                Cell: props => <div> {toCurrency(props.value)} </div>
 
-    //   Cell: row => <div style={{ textAlign: "center" }}>{toCurrency(row.value)}</div>,
-    //   className: "right",
-      // width: 250,  
-   },
-
-   
-  ],
-  []
-  )
+                //   Cell: row => <div style={{ textAlign: "center" }}>{toCurrency(row.value)}</div>,
+                //   className: "right",
+                // width: 250,  
+            },
 
 
-       const data = React.useMemo(
-    () => mydata,
-    [ mydata ]
-  )
+        ],
+        []
+    )
+
+
+    const data = React.useMemo(
+        () => mydata,
+        [mydata]
+    )
 
 
     return (
-      <Styles>
-        <Table columns={columns} data={data} />
+        <Styles>
+            <Table columns={columns} data={data} />
         </Styles>
     )
 }
